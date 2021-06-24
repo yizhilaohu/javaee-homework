@@ -21,15 +21,24 @@ public class HobbyServlet extends HttpServlet {
     @Override
     public void init() {
         userHobby = new HashMap<>();
-        userHobby.put("Bob", "skiing");
+         userHobby.put("Bob", "skiing");
+        userHobby.put("Bob", "knitting");
         userHobby.put("Jim", "skiing");
+        userHobby.put("Jim", "scuba");
         userHobby.put("James", "knitting");
+        userHobby.put("James", "scuba");
         userHobby.put("Tom", "knitting");
+        userHobby.put("Tom", "dating");
         userHobby.put("Fei", "scuba");
+        userHobby.put("Fei", "dating");
         userHobby.put("Jone", "scuba");
+        userHobby.put("Jone", "knitting");
         userHobby.put("Fred", "dating");
+        userHobby.put("Fred", "scuba");
         userHobby.put("Pradeep", "dating");
+        userHobby.put("Pradeep", "scuba");
         userHobby.put("Philippe", "dating");
+        userHobby.put("Philippe", "skilling");
 
     }
     @Override
