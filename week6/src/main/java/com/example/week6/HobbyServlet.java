@@ -1,4 +1,5 @@
 package com.example.week6;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,34 +13,54 @@ import java.util.Map;
 
 @WebServlet(urlPatterns = "/hobbyFind")
 public class HobbyServlet extends HttpServlet {
-    private Map<String, String> userHobby;
+    private Map<String, ArrayList<String>> userHobby;
+
     public List getList(String a){
         List<String> list = new ArrayList<>();
         list.add(a);
         return list;
     }
-    @Override
     public void init() {
         userHobby = new HashMap<>();
-         userHobby.put("Bob", "skiing");
-        userHobby.put("Bob", "knitting");
-        userHobby.put("Jim", "skiing");
-        userHobby.put("Jim", "scuba");
-        userHobby.put("James", "knitting");
-        userHobby.put("James", "scuba");
-        userHobby.put("Tom", "knitting");
-        userHobby.put("Tom", "dating");
-        userHobby.put("Fei", "scuba");
-        userHobby.put("Fei", "dating");
-        userHobby.put("Jone", "scuba");
-        userHobby.put("Jone", "knitting");
-        userHobby.put("Fred", "dating");
-        userHobby.put("Fred", "scuba");
-        userHobby.put("Pradeep", "dating");
-        userHobby.put("Pradeep", "scuba");
-        userHobby.put("Philippe", "dating");
-        userHobby.put("Philippe", "skilling");
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("skiing");
+        list1.add("scuba");
+        userHobby.put("Bob",list1);
 
+        ArrayList<String> list2 = new ArrayList<>();
+        list2.add("skiing");
+        list2.add("scuba");
+        userHobby.put("Jim",list2);
+
+        ArrayList<String> list3 = new ArrayList<>();
+        list3.add("knitting");
+        list3.add("scuba");
+        userHobby.put("James",list3);
+
+        ArrayList<String> list4 = new ArrayList<>();
+        list4.add("dating");
+        list4.add("scuba");
+        userHobby.put("Tom",list4);
+
+        ArrayList<String> list5 = new ArrayList<>();
+        list5.add("dating");
+        list5.add("scuba");
+        userHobby.put("Tom",list5);
+
+        ArrayList<String> list6 = new ArrayList<>();
+        list6.add("dating");
+        list6.add("knitting");
+        userHobby.put("Fei",list6);
+
+        ArrayList<String> list7 = new ArrayList<>();
+        list7.add("dating");
+        list7.add("skiing");
+        userHobby.put("Pradeep",list7);
+
+        ArrayList<String> list8 = new ArrayList<>();
+        list8.add("skiing");
+        list8.add("knitting");
+        userHobby.put("Philippe",list8);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +68,7 @@ public class HobbyServlet extends HttpServlet {
         String hobby = request.getParameter("hobby");
         List<String> names = new ArrayList<>();
             userHobby.forEach((k, v) -> {
-                if (v.equals(hobby)) {
+                if (v.get(0).equals(hobby)||v.get(1).equals(hobby)) {
                     names.add(k);
                 }
             });
