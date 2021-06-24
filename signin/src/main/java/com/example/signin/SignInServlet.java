@@ -54,7 +54,7 @@ public class SignInServlet extends HttpServlet {
         else {
             if (remember_me != null) {
                 Cookie cookie = new Cookie("user", name);
-                cookie.setMaxAge(604800);
+                cookie.setMaxAge(1);
                 cookie.setPath("/");
                 resp.addCookie(cookie);
             }
