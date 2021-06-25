@@ -54,6 +54,7 @@ public class HobbyServlet extends HttpServlet {
 
         ArrayList<String> list7 = new ArrayList<>();
         list7.add("dating");
+        list7.add("scuba");
         list7.add("skiing");
         userHobby.put("Pradeep",list7);
 
@@ -68,7 +69,7 @@ public class HobbyServlet extends HttpServlet {
         String hobby = request.getParameter("hobby");
         List<String> names = new ArrayList<>();
             userHobby.forEach((k, v) -> {
-                if (v.get(0).equals(hobby)||v.get(1).equals(hobby)) {
+                if (v.contains(hobby)) {
                     names.add(k);
                 }
             });
